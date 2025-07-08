@@ -12,8 +12,11 @@ class UI {
     AddPhoneNumber(number) {
         const list = document.getElementById('phone-list')
 
+        fsdfds
+        fsdfds
+
         const row = document.createElement('tr')
-        row.className = 'for-filter'
+        row.classgit Name = 'for-filter'
         row.innerHTML = `
     <td>${number.name}</td>
     <td>${number.phone}</td>
@@ -142,7 +145,7 @@ document.getElementById('phone-form').addEventListener('submit', function (e) {
 
     if (name === '' || phone === '') {
         ui.showAlert('Заповніть поля!', 'error')
-         ui.clearFields()
+        ui.clearFields()
         return
     }
     if (!phone.startsWith('380') || phone.length != 12) {
@@ -171,10 +174,10 @@ document.getElementById('phone-form').addEventListener('submit', function (e) {
         // Перевірка на дублікат
     } else if (localStorage.getItem('phones').includes(name)) {
         ui.showAlert(`Контакт з іменем ${name} вже існує`, 'error')
-         ui.clearFields()
+        ui.clearFields()
     } else if (localStorage.getItem('phones').includes(phone)) {
         ui.showAlert(`Контакт з номером ${phone} вже існує`, 'error')
-         ui.clearFields()
+        ui.clearFields()
     } else {
         Store.addPhone(phoneBook)
         ui.showAlert('Контакт додано!', 'success')
@@ -189,15 +192,15 @@ const filter = document.getElementById('filter')
 filter.addEventListener('keyup', filterPhone)
 
 function filterPhone(e) {
-const phoneName = e.target.value.toLowerCase()
+    const phoneName = e.target.value.toLowerCase()
 
-document.querySelectorAll('.for-filter').forEach(function(name) {
- const item = name.textContent
- if(phoneName === '' || item.toLowerCase().indexOf(phoneName) != -1) {
-      name.style.display = 'table-row'
-    } else {
-      name.style.display = 'none'
-    }
-})
+    document.querySelectorAll('.for-filter').forEach(function (name) {
+        const item = name.textContent
+        if (phoneName === '' || item.toLowerCase().indexOf(phoneName) != -1) {
+            name.style.display = 'table-row'
+        } else {
+            name.style.display = 'none'
+        }
+    })
 }
 
